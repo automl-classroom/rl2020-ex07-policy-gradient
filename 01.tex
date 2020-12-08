@@ -1,0 +1,110 @@
+\documentclass{exam}
+\usepackage{amsmath, amsfonts}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage[super]{nth}
+
+\DeclareMathOperator*{\argmin}{argmin}
+
+\usepackage[hyperfootnotes=false]{hyperref}
+
+\usepackage[usenames,dvipsnames]{color}
+\newcommand{\note}[1]{
+	\noindent~\\
+	\vspace{0.25cm}
+	\fcolorbox{Red}{Orange}{\parbox{0.99\textwidth}{#1\\}}
+	%{\parbox{0.99\textwidth}{#1\\}}
+	\vspace{0.25cm}
+}
+
+
+%\input{../macros}
+%\renewcommand{\hide}[1]{#1}
+
+\qformat{\thequestion. \textbf{\thequestiontitle}\hfill}
+\bonusqformat{\thequestion. \textbf{\thequestiontitle}\hfill}
+
+\pagestyle{headandfoot}
+
+%%%%%% MODIFY FOR EACH SHEET!!!! %%%%%%
+\newcommand{\duedate}{04.11.2020 (15:00)}
+\newcommand{\due}{{\bf This assignment is due on \duedate.} }
+\firstpageheader
+{Due: \duedate}
+{{\bf\lecture}\\ \assignment{1}}
+{\lectors\\ \semester}
+
+\runningheader
+{Due: \duedate}
+{\assignment{1}}
+{\semester}
+%%%%%% MODIFY FOR EACH SHEET!!!! %%%%%%
+
+\firstpagefooter
+{}
+{\thepage}
+{}
+
+\runningfooter
+{}
+{\thepage}
+{}
+
+\headrule
+\pointsinrightmargin
+\bracketedpoints
+\marginpointname{pt.}
+
+
+\begin{document}
+
+\noindent
+The exercises in this course will teach you how to implement important RL algorithms and how every part of the RL pipeline works. The goal of this first exercise is to set up teams and learn about git and the workflow for future exercises.
+
+\begin{questions}
+	\titledquestion{Form teams of up to $3$ students} 
+	Most exercises will require you to implement some of the techniques you learn during the course (in python 3.6)\footnote{We recommend you use anaconda to set up a virtual environment for the lecture, see \url{https://conda.io/projects/conda/en/latest/user-guide/getting-started.html\#managing-environments}}.
+	\emph{Git} is one of the most widely used \textbf{version control systems} and allows you to easily collaborate with others on code from the same repository.
+	
+    Exercises have to be handed in \emph{teams of up to $3$} students.
+    When you have found your partner, open the following link \url{https://classroom.github.com/g/cwBqm7bG}, create a group (you will have to name the group yourself) and both join that group.
+    This will allow you to clone the template repository in which you can add your solutions to this exercise sheet.
+
+    \emph{Note 1:} If you have never worked with \emph{git} before we suggest you take a look at this simple guide \url{http://rogerdudler.github.io/git-guide/}.\\
+    \emph{Note 2:} Make sure you and your team-mate are happy with each other. GitHub Classroom does not allow to change your groups mid semester. 
+    
+	
+    \titledquestion{Get familiar with git and GitHub Classroom} 
+    First, you need to create a working branch (e.g. dev) that you will be working on. Only commit to main when you want to submit you exercises!
+    To create a new branch in a command line setting, run:
+    \begin{verbatim}
+	git checkout -b dev
+	\end{verbatim}
+	If the branch already exists, you can change to it using:
+	\begin{verbatim}
+	git checkout dev
+	\end{verbatim}
+	To show that you are familiar with the standard git \emph{add}, \emph{commit}, \emph{push} steps add a file called \texttt{members.txt} to your repository.
+	The file should contain the names of all members in the following way:
+	\begin{verbatim}
+	member 1: name1
+	member 2: name2
+	member 3: name3
+	\end{verbatim}
+	
+	Once you're satisfied with your team assignment and have pushed it to the dev branch, you're ready to submit. To do that, simply merge dev to master:
+	\begin{verbatim}
+	git checkout master
+	git merge dev
+	\end{verbatim}
+	
+	Afterwards you can push to submit.
+	
+	We make use of GitHub Classrooms autograde functionality. Essentially, for most exercise sheets we will require you to pass unit tests which are automatically evaluated whenever you push to GitHub.
+	To demonstrate this process, for this exercise we run a test that expects the above file to be present and to contain three lines as above (make sure to replace name1, name2 and name3. If your group has less than 3 students, just add any name you like).
+
+	You will be informed if the tests executed successfully or not.
+	(To run tests locally you can always use the provide Makefile via \texttt{make all})
+\end{questions}
+
+\end{document}
