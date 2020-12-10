@@ -1,5 +1,4 @@
 # Ignore Tex files
-*.tex
 *.out
 *.log
 *.aux

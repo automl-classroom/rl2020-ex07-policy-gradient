@@ -1,0 +1,82 @@
+\documentclass{exam}
+\usepackage{amsmath, amsfonts}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage[super]{nth}
+
+\DeclareMathOperator*{\argmin}{argmin}
+
+\usepackage[hyperfootnotes=false]{hyperref}
+
+\usepackage[usenames,dvipsnames]{color}
+\newcommand{\note}[1]{
+	\noindent~\\
+	\vspace{0.25cm}
+	\fcolorbox{Red}{Orange}{\parbox{0.99\textwidth}{#1\\}}
+	%{\parbox{0.99\textwidth}{#1\\}}
+	\vspace{0.25cm}
+}
+
+
+%\input{../macros}
+%\renewcommand{\hide}[1]{#1}
+
+\qformat{\thequestion. \textbf{\thequestiontitle}\hfill}
+\bonusqformat{\thequestion. \textbf{\thequestiontitle}\hfill}
+
+\pagestyle{headandfoot}
+
+%%%%%% MODIFY FOR EACH SHEET!!!! %%%%%%
+\newcommand{\duedate}{16.12.2020 (15:00)}
+\newcommand{\due}{{\bf This assignment is due on \duedate.} }
+\firstpageheader
+{Due: \duedate}
+{{\bf\lecture}\\ \assignment{1}}
+{\lectors\\ \semester}
+
+\runningheader
+{Due: \duedate}
+{\assignment{1}}
+{\semester}
+%%%%%% MODIFY FOR EACH SHEET!!!! %%%%%%
+
+\firstpagefooter
+{}
+{\thepage}
+{}
+
+\runningfooter
+{}
+{\thepage}
+{}
+
+\headrule
+\pointsinrightmargin
+\bracketedpoints
+\marginpointname{pt.}
+
+
+\begin{document}
+
+\noindent At the end of this exercise you will have implemented a policy gradient algorithm to solve the \texttt{CartPole-v1} environment.
+
+\begin{questions}
+	\titledquestion{Policy Gradient Implementation}
+	\indent
+	\begin{itemize}
+		\item Implement the \texttt{Policy} network to solve the \texttt{CartPole-v1} environment.
+		\item Implement \texttt{compute\_returns} to compute the discounted returns $G_t$ for each state in a trajectory.
+		\item Implement the \texttt{policy\_improvement} step to update the policy given the rewards and probabilities from the last trajectory.
+		\item Use the policy in the \texttt{act} function to sample an action and return its log probability.
+	\end{itemize}	
+	\titledquestion{Questions}
+	\indent
+	\begin{itemize}
+		\item What could be a problem in the current implementation? How does the length of the trajectories affect the training?
+		\item How could a baseline be implemented to stabilize the training?
+		\item Does the same network architecture and learning rate work for \texttt{LunarLander-v2}?
+		\item How is the sample complexity (how many steps it takes to solve the environment) of this algorithm related to the DQN from the last exercise?
+	\end{itemize}
+\end{questions}
+
+\end{document}
